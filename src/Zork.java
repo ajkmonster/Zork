@@ -1,9 +1,30 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Zork {
-    public static void main(String[] args){
-        System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands. We start in the Foyer. We encounter a dead");
+
+    private static ArrayList<Boolean> roomsVisited = new ArrayList<>();
+    // Initialized at false
+
+    public static void main(String[]args){
+        // welcomeMessage method
+        // promptUser method
+        // Ask the user what direction they want to go
+        System.out.println("Which direction would you like to go? Press N/S/W/E or Q to quit.");
+        Scanner keyboard = new Scanner(System.in);
+        String input = keyboard.nextLine();
+        while(!input.equalsIgnoreCase("q")){
+            // call room 7
+            room7();
+        }
+        // moveUser method -- we may not need this
+        // Move user to the desired room, tell them what room it is, and what's in the room, and what directions other exists are in
+        // exitMessage method
+        // 25% chance the user is followed by a ghost
+        // if user followed, let them know
+        // let user know how many rooms they've been in
     }
+
     public static void room1 (String input){
         System.out.println("You are in the foyer");
         System.out.println("There is a dead scorpion in this room");
@@ -94,6 +115,11 @@ public class Zork {
             // go to room 6
             room6();
         }
+    }
+
+    public static void welcomeMessage(){
+        System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands. " +
+                "We start in the Foyer.");
     }
 
     public static void exitMessage(){
