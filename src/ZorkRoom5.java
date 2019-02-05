@@ -1,0 +1,2 @@
+public class ZorkRoom5 {
+}
