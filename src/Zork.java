@@ -2,34 +2,44 @@ import java.util.Scanner;
 
 public class Zork {
     public static void main(String[] args){
-        System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands. We start in the Foyer. We encounter a dead");
+            System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands.");
+            System.out.println("We will prompt you to answer and create your own journey!");
+            System.out.println("Would you like to start? (Y/N) ");Scanner scanner1 = new Scanner(System.in);
+            String y = scanner1.next();
+            if (y.equalsIgnoreCase("Y")) {
+                room1(y);
+            }
     }
-    public static void room1 (String input){
+    private static void room1 (String input1){
         System.out.println("You are in the foyer");
-        System.out.println("There is a dead scorpion in this room");
+        System.out.println("There is a dead scorpion in this room.");
         Scanner scanner = new Scanner(System.in);
+        System.out.println("You see a shadow in the midst of your eyes. Do you follow the shadow north? (Y/N): ");
         String answer = scanner.nextLine();
         if(answer.equalsIgnoreCase("y")){
             System.out.println("going to the next room...");
-            room2(answer);
+            room2(input1);
         }else{
-            System.out.println("Staying in room 1");
+            System.out.println("You decide to stay in the Foyer");
+            room1(input1);
         }
     }
     private static void room2(String input1) {
-        System.out.println("Welcome to the Front room. You see a piano. You start playing on the piano when you hear creaking noises coming from other areas. ";
+        System.out.println("Welcome to the Front room. You don't see the shadow but you do see a piano.");
+        System.out.println("You move towards the piano and sit down.");
+        System.out.println("You start playing on the piano when you hear creaking noises coming from other areas. ");
         System.out.println("You decide to explore. You can go South, East, West");
         System.out.println("Where would you like to go? (S/E/W): ");
         Scanner input = new Scanner(System.in);
         String answer = input.next();
         if (answer.equalsIgnoreCase("S")){
-            room1(input);
+            room1(input1);
         }
         if (answer.equalsIgnoreCase("W")){
-            room3(input);
+            room3(input1);
         }
         if (answer.equalsIgnoreCase("E")){
-            room4(input);
+           // room4(input1);
         }
     }
     private static void room3(String input1) {
