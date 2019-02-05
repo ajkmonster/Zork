@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fea2cc4-4b7c-4323-9c99-891a4f596919" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+>>>>>>> 468ae5944290cd84c0aae47d283960822cafe5f7
       <change beforePath="$PROJECT_DIR$/src/Zork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zork.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,11 +20,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Zork.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="442">
               <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="27" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="255">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+>>>>>>> 468ae5944290cd84c0aae47d283960822cafe5f7
             </state>
           </provider>
         </entry>
@@ -97,6 +105,20 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Zork" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zork" />
+      <module name="Zork" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Zork" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -107,16 +129,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549392098214</updated>
+<<<<<<< HEAD
       <workItem from="1549392107692" duration="5566000" />
       <workItem from="1549399386007" duration="1089000" />
+=======
+      <workItem from="1549392107692" duration="6789000" />
+>>>>>>> 468ae5944290cd84c0aae47d283960822cafe5f7
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="6655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+=======
+    <option name="totallyTimeSpent" value="6789000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+>>>>>>> 468ae5944290cd84c0aae47d283960822cafe5f7
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.25266525" />
@@ -152,11 +185,16 @@
     <entry file="file://$PROJECT_DIR$/src/ZorkRoom5.java" />
     <entry file="file://$PROJECT_DIR$/src/Zork.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="442">
           <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="27" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="255">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+>>>>>>> 468ae5944290cd84c0aae47d283960822cafe5f7
         </state>
       </provider>
     </entry>
