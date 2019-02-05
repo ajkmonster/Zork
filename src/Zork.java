@@ -4,6 +4,18 @@ public class Zork {
     public static void main(String[] args){
         System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands. We start in the Foyer. We encounter a dead");
     }
+    public static void room1 (String input){
+        System.out.println("You are in the foyer");
+        System.out.println("There is a dead scorpion in this room");
+        Scanner scanner = new Scanner(System.in);
+        String answer = scanner.nextLine();
+        if(answer.equalsIgnoreCase("y")){
+            System.out.println("going to the next room...");
+            room2(answer);
+        }else{
+            System.out.println("Staying in room 1");
+        }
+    }
     private static void room2(String input1) {
         System.out.println("Welcome to the Front room. You see a piano. You start playing on the piano when you hear creaking noises coming from other areas. ";
         System.out.println("You decide to explore. You can go South, East, West");
