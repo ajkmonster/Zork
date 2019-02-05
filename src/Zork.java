@@ -79,6 +79,25 @@ public class Zork {
             room2();
         }
     }
+    public static void room4(){
+        String answer;
+        System.out.println("You are currently in the kitchen");
+        System.out.println("This room contains bats");
+        System.out.println("Which room do you want to go to?(room2|room7)");
+        Scanner scanner = new Scanner(System.in);
+        answer = scanner.nextLine();
+        switch(answer){
+            case "room2":
+                room2();
+                break;
+            case "room7":
+                room7();
+                break;
+            default:
+                System.out.println("Please enter the correct room");
+
+        }
+    }
     public static void room5(){
         System.out.println("Welcome to the Dining room. You see an empty table, knives, forks, and layers of dust covering everything.");
         System.out.println("You see a box. Do you want to open the box? (Y/N):");
