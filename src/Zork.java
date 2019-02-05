@@ -1,16 +1,46 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Zork {
-    public static void main(String[] args){
+
+    private static ArrayList<Boolean> roomsVisited = new ArrayList<>();
+    // Initialized at false
+
+    public static void main(String[]args){
+        // welcomeMessage method
+        welcomeMessage();
+
+        /*
+        * Ask the user to start*/
+        promptUser();
+
+
+        // moveUser method -- we may not need this
+        // Move user to the desired room, tell them what room it is, and what's in the room, and what directions other exists are in
+        // exitMessage method
+            // 25% chance the user is followed by a ghost
+            // if user followed, let them know
+            // let user know how many rooms they've been in
+        exitMessage();
+    }
+
+
+    public static void welcomeMessage(){
             System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands.");
             System.out.println("We will prompt you to answer and create your own journey!");
-            System.out.println("Would you like to start? (Y/N) ");Scanner scanner1 = new Scanner(System.in);
-            String y = scanner1.next();
-            if (y.equalsIgnoreCase("Y")) {
-                room1(y);
-            }
     }
-    private static void room1 (String input1){
+
+    public static void promptUser(){
+        System.out.println("Would you like to begin? (Y/N) ");
+        Scanner scanner1 = new Scanner(System.in);
+        String y = scanner1.next();
+        if (y.equalsIgnoreCase("Y")) {
+            room1();
+        }
+    }
+
+    public static void room1 (){
+        roomsVisited.add(true);
         System.out.println("You are in the foyer");
         System.out.println("There is a dead scorpion in this room.");
         Scanner scanner = new Scanner(System.in);
@@ -18,13 +48,14 @@ public class Zork {
         String answer = scanner.nextLine();
         if(answer.equalsIgnoreCase("y")){
             System.out.println("going to the next room...");
-            room2(input1);
+            room2();
         }else{
             System.out.println("You decide to stay in the Foyer");
-            room1(input1);
+            room1();
         }
     }
-    private static void room2(String input1) {
+    public static void room2() {
+        roomsVisited.add(true);
         System.out.println("Welcome to the Front room. You don't see the shadow but you do see a piano.");
         System.out.println("You move towards the piano and sit down.");
         System.out.println("You start playing on the piano when you hear creaking noises coming from other areas. ");
@@ -33,16 +64,17 @@ public class Zork {
         Scanner input = new Scanner(System.in);
         String answer = input.next();
         if (answer.equalsIgnoreCase("S")){
-            room1(input1);
+            room1();
         }
         if (answer.equalsIgnoreCase("W")){
-            room3(input1);
+            room3();
         }
         if (answer.equalsIgnoreCase("E")){
            // room4(input1);
         }
     }
-    private static void room3(String input1) {
+    public static void room3() {
+        roomsVisited.add(true);
         System.out.println("Welcome to the Library. You scour around the library. You see books. ");
         System.out.println("You decide to pick up a book and you encounter a huge nest of spiders underneath. ");
         System.out.println("You are shocked and decide to leave. The directions you can go are North or East.");
@@ -50,13 +82,36 @@ public class Zork {
         System.out.println("Where would you like to go? (N or E): ");
         String answer = input.next();
         if (answer.equalsIgnoreCase("n")){
-            room5(in);
+
+            room5();
         }
         if (answer.equalsIgnoreCase("e")){
-            room2(input1);
+            room2();
         }
     }
-    private static void room5(){
+
+    public static void room4(){
+        roomsVisited.add(true);
+        String answer;
+        System.out.println("You are currently in the kitchen");
+        System.out.println("This room contains bats");
+        System.out.println("Which room do you want to go to?(room2|room7)");
+        Scanner scanner = new Scanner(System.in);
+        answer = scanner.nextLine();
+        switch(answer){
+            case "room2":
+                room2();
+                break;
+            case "room7":
+                room7();
+                break;
+            default:
+                System.out.println("Please enter the correct room");
+
+        }
+    }
+    public static void room5(){
+        roomsVisited.add(true);
         System.out.println("Welcome to the Dining room. You see an empty table, knives, forks, and layers of dust covering everything.");
         System.out.println("You see a box. Do you want to open the box? (Y/N):");
         Scanner input = new Scanner(System.in);
@@ -83,7 +138,7 @@ public class Zork {
 
         if(proceed.equalsIgnoreCase("w")){
             // go to room 6
-            room6();
+            //room6();
         }
 
         if(proceed.equalsIgnoreCase("s")){
@@ -102,9 +157,10 @@ public class Zork {
 
         if(proceed.equalsIgnoreCase("w")){
             // go to room 6
-            room6();
+            //room6();
         }
     }
+
 
     public static void exitMessage(){
         // System.out.println("There's a chance you're being followed by a ghost...");
