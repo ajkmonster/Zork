@@ -50,13 +50,13 @@ public class Zork {
         System.out.println("Where would you like to go? (N or E): ");
         String answer = input.next();
         if (answer.equalsIgnoreCase("n")){
-            room5(input1);
+            room5(in);
         }
         if (answer.equalsIgnoreCase("e")){
             room2(input1);
         }
     }
-    private static void room5(String input1){
+    private static void room5(){
         System.out.println("Welcome to the Dining room. You see an empty table, knives, forks, and layers of dust covering everything.");
         System.out.println("You see a box. Do you want to open the box? (Y/N):");
         Scanner input = new Scanner(System.in);
@@ -65,12 +65,12 @@ public class Zork {
             System.out.println("You open the box. It's empty. You decide you want to leave. There is no other doors.");
             System.out.println("Enter S to go back south. ");
             answer = input.next();
-            room3(input1);
+            room3();
         } else {
             System.out.println("You didn't open the box, but nothing else caught your eye. You decide to leave.");
             System.out.println("There is no other doors. Enter S to go back south.");
             answer = input.next();
-            room3(input1);
+            room3();
         }
     }
     public static void room7(){
