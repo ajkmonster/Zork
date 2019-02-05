@@ -31,11 +31,13 @@ public class Zork {
     }
 
     public static void promptUser(){
-        System.out.println("Would you like to begin? (Y/N) ");
+        System.out.println("Would you like to continue? (Y/N) ");
         Scanner scanner1 = new Scanner(System.in);
         String y = scanner1.next();
         if (y.equalsIgnoreCase("Y")) {
             room1();
+        } else {
+            System.out.println("Exiting game. Goodbye");
         }
     }
 
@@ -52,6 +54,7 @@ public class Zork {
         }else{
             System.out.println("You decide to stay in the Foyer");
             room1();
+            // Add an option to exit game or go back to main
         }
     }
     public static void room2() {
