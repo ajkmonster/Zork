@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ZorkRoom3 {
+public class Zork {
     public static void main(String[] args){
         System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands. We start in the Foyer. We encounter a dead");
     }
