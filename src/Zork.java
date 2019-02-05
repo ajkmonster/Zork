@@ -1,5 +1,8 @@
+import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
+
+
 
 public class Zork {
 <<<<<<< HEAD
@@ -101,7 +104,34 @@ public class Zork {
             room3(input1);
         }
     }
-    public static void room7(){
+
+
+        public static void room6(String input){
+
+            Random rnd = new Random();
+
+
+            Scanner keyboard = new Scanner(System.in);
+                System.out.println("You are in the Vault and there are 3 walking skeletons in this room");
+                System.out.println("You can proceed ahead");
+                String choice = keyboard.nextLine();
+
+
+            int n = rnd.nextInt(4);
+
+                    if (n==0){
+
+                        room8();
+                    }
+                    else{
+                        room7();
+                    }
+
+                }
+            }
+
+
+        public static void room7(){
         roomsVisited.add(true);
         System.out.println("You are in the parlor.");
         System.out.println("And there is a treasure chest in this room.");
