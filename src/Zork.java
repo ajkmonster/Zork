@@ -101,9 +101,9 @@ public class Zork {
     public static void room1() {
         myItems.put(1, "Dead Scorpion");
         myRooms.put(1, true);
-        getMoney(1);
         System.out.println("You are in the Foyer");
         System.out.println("There is a dead scorpion in this room.");
+        getMoney(1);
         Scanner scanner = new Scanner(System.in);
         System.out.println("You see a shadow in the midst of your eyes. Do you follow the shadow north? Press N to move or Q to quit: ");
         String answer = scanner.nextLine().toLowerCase();
@@ -121,8 +121,8 @@ public class Zork {
     public static void room2() {
         myItems.put(2, "Piano");
         myRooms.put(2, true);
-        getMoney(2);
         System.out.println("Welcome to the Front room. You don't see the shadow but you do see a piano.");
+        getMoney(2);
         System.out.println("You move towards the piano and sit down.");
         System.out.println("You start playing on the piano when you hear creaking noises coming from other areas. ");
         System.out.println("You decide to explore. You can go South, East, or West");
@@ -148,8 +148,8 @@ public class Zork {
     public static void room3() {
         myItems.put(3, "Spiders");
         myRooms.put(3, true);
-        getMoney(3);
         System.out.println("Welcome to the Library. You scour around the library. You see books. ");
+        getMoney(3);
         System.out.println("You decide to pick up a book and you encounter a huge nest of spiders underneath. ");
         System.out.println("You are shocked and decide to leave. The directions you can go are North or East.");
         Scanner input = new Scanner(System.in);
@@ -171,9 +171,9 @@ public class Zork {
     public static void room4() {
         myItems.put(4, "Bats");
         myRooms.put(4, true);
-        getMoney(4);
         String answer;
         System.out.println("You are now in the Kitchen.");
+        getMoney(4);
         System.out.println("This room contains bats!");
         System.out.println("Which direction would you like to go? West or North. (W/N): ");
         Scanner scanner = new Scanner(System.in);
@@ -198,8 +198,8 @@ public class Zork {
     public static void room5() {
         myItems.put(5, "Dust and empty box");
         myRooms.put(5, true);
-        getMoney(5);
         System.out.println("Welcome to the Dining room. You see an empty table, knives, forks, and layers of dust covering everything.");
+        getMoney(5);
         System.out.println("You see a box. Do you want to open the box? (Y/N):");
         Scanner input = new Scanner(System.in);
         String answer = input.next();
@@ -216,10 +216,10 @@ public class Zork {
     public static void room6() {
         myItems.put(6, "3 Walking Skeletons");
         myRooms.put(6, true);
-        getMoney(6);
         Random rnd = new Random();
         Scanner keyboard = new Scanner(System.in);
         System.out.println("You are in the Vault and there are 3 walking skeletons in this room.");
+        getMoney(6);
 
         int n = rnd.nextInt(4);
         if (!myRooms.get(8)) {
@@ -264,9 +264,9 @@ public class Zork {
     public static void room7() {
         myItems.put(7, "Treasure Chest");
         myRooms.put(7, true);
-        getMoney(7);
         System.out.println("You are now in the Parlor.");
-        System.out.println("There is a treasure chest in this room.");
+        System.out.println("There is a treasure chest in this room, and...");
+        getMoney(7);
 
         System.out.println("To leave the room, proceed West or South: (W/S)");
         Scanner keyboard = new Scanner(System.in);
@@ -287,9 +287,9 @@ public class Zork {
     public static void room8() {
         myItems.put(8, "Piles of Gold");
         myRooms.put(8, true);
-        getMoney(8);
         System.out.println("You are in the secret room.");
         System.out.println("Yay! You've struck the piles of hidden gold! On top of that...");
+        getMoney(8);
         System.out.println("To leave the room, proceed West: (W)");
         Scanner keyboard = new Scanner(System.in);
         String proceed = keyboard.nextLine().toLowerCase();
@@ -313,6 +313,7 @@ public class Zork {
         }
         VisitedRooms();
         FoundItems();
+        System.out.println("The total amount you have is $" + totalMoney);
     }
 
 
@@ -395,7 +396,7 @@ public class Zork {
             RoomMoney.put(roomNum,0);
         } else if (denyOrTake.equalsIgnoreCase("N")) {
             totalMoney += 0;
-            System.out.println("Total money: " + totalMoney);
+            System.out.println("Total money: $" + totalMoney);
         } else {
             System.out.println("Incorrect input!!");
         }
