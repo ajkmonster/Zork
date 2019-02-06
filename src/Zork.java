@@ -15,8 +15,11 @@ public class Zork {
     public static void main(String[] args) {
         // welcomeMessage method
         welcomeMessage();
+        //initialize hashmaps
         HashMapDoorOpened();
         HashMapList();
+
+        HashMapMoneyInside();
 
         /*
          * Ask the user to start*/
@@ -42,8 +45,6 @@ public class Zork {
         System.out.println("Would you like to continue? (Y/N) ");
         Scanner scanner1 = new Scanner(System.in);
         String y = scanner1.next();
-        HashMapDoorOpened();
-        HashMapList();
         if (y.equalsIgnoreCase("Y")) {
             moveToRoom(1);
         } else {
@@ -64,6 +65,7 @@ public class Zork {
             System.out.println("Tiv the furry monster is in the room!");
             totalMoney = 0;
             System.out.println("He took all your money :( Your new total is: " + totalMoney);
+
         }
         switch (roomNum) {
             case 1:
@@ -99,10 +101,10 @@ public class Zork {
     public static void room1() {
         myItems.put(1, "Dead Scorpion");
         myRooms.put(1, true);
+        getMoney(1);
         System.out.println("You are in the Foyer");
         System.out.println("There is a dead scorpion in this room.");
         Scanner scanner = new Scanner(System.in);
-        getMoney();
         System.out.println("You see a shadow in the midst of your eyes. Do you follow the shadow north? Press N to move or Q to quit: ");
         String answer = scanner.nextLine().toLowerCase();
         switch (answer) {
@@ -119,8 +121,8 @@ public class Zork {
     public static void room2() {
         myItems.put(2, "Piano");
         myRooms.put(2, true);
+        getMoney(2);
         System.out.println("Welcome to the Front room. You don't see the shadow but you do see a piano.");
-        getMoney();
         System.out.println("You move towards the piano and sit down.");
         System.out.println("You start playing on the piano when you hear creaking noises coming from other areas. ");
         System.out.println("You decide to explore. You can go South, East, or West");
@@ -146,8 +148,8 @@ public class Zork {
     public static void room3() {
         myItems.put(3, "Spiders");
         myRooms.put(3, true);
+        getMoney(3);
         System.out.println("Welcome to the Library. You scour around the library. You see books. ");
-        getMoney();
         System.out.println("You decide to pick up a book and you encounter a huge nest of spiders underneath. ");
         System.out.println("You are shocked and decide to leave. The directions you can go are North or East.");
         Scanner input = new Scanner(System.in);
@@ -169,11 +171,10 @@ public class Zork {
     public static void room4() {
         myItems.put(4, "Bats");
         myRooms.put(4, true);
+        getMoney(4);
         String answer;
         System.out.println("You are now in the Kitchen.");
         System.out.println("This room contains bats!");
-        getMoney();
-
         System.out.println("Which direction would you like to go? West or North. (W/N): ");
         Scanner scanner = new Scanner(System.in);
         answer = scanner.nextLine().toLowerCase();
@@ -197,8 +198,8 @@ public class Zork {
     public static void room5() {
         myItems.put(5, "Dust and empty box");
         myRooms.put(5, true);
+        getMoney(5);
         System.out.println("Welcome to the Dining room. You see an empty table, knives, forks, and layers of dust covering everything.");
-        getMoney();
         System.out.println("You see a box. Do you want to open the box? (Y/N):");
         Scanner input = new Scanner(System.in);
         String answer = input.next();
@@ -215,10 +216,11 @@ public class Zork {
     public static void room6() {
         myItems.put(6, "3 Walking Skeletons");
         myRooms.put(6, true);
+        getMoney(6);
         Random rnd = new Random();
         Scanner keyboard = new Scanner(System.in);
         System.out.println("You are in the Vault and there are 3 walking skeletons in this room.");
-        getMoney();
+
         int n = rnd.nextInt(4);
         if (!myRooms.get(8)) {
             System.out.println("You can proceed ahead by going East: ");
@@ -262,9 +264,10 @@ public class Zork {
     public static void room7() {
         myItems.put(7, "Treasure Chest");
         myRooms.put(7, true);
+        getMoney(7);
         System.out.println("You are now in the Parlor.");
         System.out.println("There is a treasure chest in this room.");
-        getMoney();
+
         System.out.println("To leave the room, proceed West or South: (W/S)");
         Scanner keyboard = new Scanner(System.in);
         String proceed = keyboard.nextLine().toLowerCase();
@@ -284,9 +287,9 @@ public class Zork {
     public static void room8() {
         myItems.put(8, "Piles of Gold");
         myRooms.put(8, true);
+        getMoney(8);
         System.out.println("You are in the secret room.");
         System.out.println("Yay! You've struck the piles of hidden gold! On top of that...");
-        getMoney();
         System.out.println("To leave the room, proceed West: (W)");
         Scanner keyboard = new Scanner(System.in);
         String proceed = keyboard.nextLine().toLowerCase();
@@ -334,9 +337,18 @@ public class Zork {
         myItems.put(7, " ");
         myItems.put(8, " ");
     }
-public static void HashMapMoneyInside(){
-        RoomMoney.put(1, )
-}
+
+    public static void HashMapMoneyInside() {
+        RoomMoney.put(1, generateMoney());
+        RoomMoney.put(2, generateMoney());
+        RoomMoney.put(3, generateMoney());
+        RoomMoney.put(4, generateMoney());
+        RoomMoney.put(5, generateMoney());
+        RoomMoney.put(6, generateMoney());
+        RoomMoney.put(7, generateMoney());
+        RoomMoney.put(8, generateMoney());
+    }
+
     public static void VisitedRooms() {
         int count = 0;
         for (int i = 1; i <= myRooms.size(); i++) {
@@ -363,22 +375,24 @@ public static void HashMapMoneyInside(){
         return charRoom;
     }
 
-    public static void getMoney() {
+    public static int generateMoney() {
+        Random star = new Random();
+        int RandMon = star.nextInt(1001);
+        return RandMon;
+    }
 
-        Scanner scanner = new Scanner(System.in);
-
-        // Assigns random amount of money per room
-        Random rnd = new Random();
-        int moneyAvailable = rnd.nextInt(1001);
-        System.out.println("There is $ " + moneyAvailable + " in the room." );
-        System.out.println("Would you like to take the money? (Y/N)");
+    public static void getMoney(int roomNum) {
+        System.out.println("There is $ " + RoomMoney.get(roomNum) + " in the room." );
         //if user wants to claim the money or not
         String denyOrTake;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Would you like to take the money? (Y/N)");
         denyOrTake = scanner.nextLine();
 
         if (denyOrTake.equalsIgnoreCase("Y")) {
-            totalMoney += moneyAvailable;
+            totalMoney += RoomMoney.get(roomNum);
             System.out.println("Total money: " + totalMoney);
+            RoomMoney.put(roomNum,0);
         } else if (denyOrTake.equalsIgnoreCase("N")) {
             totalMoney += 0;
             System.out.println("Total money: " + totalMoney);
