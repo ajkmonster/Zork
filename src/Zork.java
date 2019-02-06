@@ -34,7 +34,7 @@ public class Zork {
     public static void welcomeMessage() {
         System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands.");
         System.out.println("We will prompt you to answer and create your own journey!");
-        System.out.println("Press Q to quit at any time");
+        System.out.println("Press Q to quit at any time.");
     }
 
     public static void promptUser() {
@@ -102,6 +102,7 @@ public class Zork {
         System.out.println("You are in the Foyer");
         System.out.println("There is a dead scorpion in this room.");
         Scanner scanner = new Scanner(System.in);
+        getMoney();
         System.out.println("You see a shadow in the midst of your eyes. Do you follow the shadow north? Press N to move or Q to quit: ");
         String answer = scanner.nextLine().toLowerCase();
         switch (answer) {
@@ -119,6 +120,7 @@ public class Zork {
         myItems.put(2, "Piano");
         myRooms.put(2, true);
         System.out.println("Welcome to the Front room. You don't see the shadow but you do see a piano.");
+        getMoney();
         System.out.println("You move towards the piano and sit down.");
         System.out.println("You start playing on the piano when you hear creaking noises coming from other areas. ");
         System.out.println("You decide to explore. You can go South, East, or West");
@@ -145,6 +147,7 @@ public class Zork {
         myItems.put(3, "Spiders");
         myRooms.put(3, true);
         System.out.println("Welcome to the Library. You scour around the library. You see books. ");
+        getMoney();
         System.out.println("You decide to pick up a book and you encounter a huge nest of spiders underneath. ");
         System.out.println("You are shocked and decide to leave. The directions you can go are North or East.");
         Scanner input = new Scanner(System.in);
@@ -169,6 +172,7 @@ public class Zork {
         String answer;
         System.out.println("You are now in the Kitchen.");
         System.out.println("This room contains bats!");
+        getMoney();
 
         System.out.println("Which direction would you like to go? West or North. (W/N): ");
         Scanner scanner = new Scanner(System.in);
@@ -194,6 +198,7 @@ public class Zork {
         myItems.put(5, "Dust and empty box");
         myRooms.put(5, true);
         System.out.println("Welcome to the Dining room. You see an empty table, knives, forks, and layers of dust covering everything.");
+        getMoney();
         System.out.println("You see a box. Do you want to open the box? (Y/N):");
         Scanner input = new Scanner(System.in);
         String answer = input.next();
@@ -213,6 +218,7 @@ public class Zork {
         Random rnd = new Random();
         Scanner keyboard = new Scanner(System.in);
         System.out.println("You are in the Vault and there are 3 walking skeletons in this room.");
+        getMoney();
         int n = rnd.nextInt(4);
         if (!myRooms.get(8)) {
             System.out.println("You can proceed ahead by going East: ");
@@ -258,6 +264,7 @@ public class Zork {
         myRooms.put(7, true);
         System.out.println("You are now in the Parlor.");
         System.out.println("There is a treasure chest in this room.");
+        getMoney();
         System.out.println("To leave the room, proceed West or South: (W/S)");
         Scanner keyboard = new Scanner(System.in);
         String proceed = keyboard.nextLine().toLowerCase();
@@ -278,7 +285,8 @@ public class Zork {
         myItems.put(8, "Piles of Gold");
         myRooms.put(8, true);
         System.out.println("You are in the secret room.");
-        System.out.println("Yay! You've struck the piles of hidden gold!");
+        System.out.println("Yay! You've struck the piles of hidden gold! On top of that...");
+        getMoney();
         System.out.println("To leave the room, proceed West: (W)");
         Scanner keyboard = new Scanner(System.in);
         String proceed = keyboard.nextLine().toLowerCase();
@@ -353,21 +361,21 @@ public class Zork {
         return charRoom;
     }
 
-    public static void randomMoney() {
-
-        //if user wants to claim the money or not
-        String denyOrTake;
+    public static void getMoney() {
 
         Scanner scanner = new Scanner(System.in);
 
-        Random random = new Random();
-        int moneyInside = random.nextInt(1001);
-        System.out.println("There is $ " + moneyInside + " in the room." );
+        // Assigns random amount of money per room
+        Random rnd = new Random();
+        int moneyAvailable = rnd.nextInt(1001);
+        System.out.println("There is $ " + moneyAvailable + " in the room." );
         System.out.println("Would you like to take the money? (Y/N)");
+        //if user wants to claim the money or not
+        String denyOrTake;
         denyOrTake = scanner.nextLine();
 
         if (denyOrTake.equalsIgnoreCase("Y")) {
-            totalMoney += moneyInside;
+            totalMoney += moneyAvailable;
             System.out.println("Total money: " + totalMoney);
         } else if (denyOrTake.equalsIgnoreCase("N")) {
             totalMoney += 0;
@@ -377,5 +385,6 @@ public class Zork {
         }
 
     }
+
 }
 
