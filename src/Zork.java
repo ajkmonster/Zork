@@ -7,7 +7,8 @@ import java.util.ArrayList;
 public class Zork {
 
     private static HashMap<Integer, Boolean> myMap = new HashMap<>();
-private static int x = -1;
+    private static int x = -1;
+
     public static void main(String[] args) {
         // welcomeMessage method
         welcomeMessage();
@@ -24,7 +25,8 @@ private static int x = -1;
          *   */
         exitMessage();
     }
-    private static void currentPlace(int x) {
+
+    public static void currentPlace(int x) {
         switch  (x) {
             case 0:
                 break;
@@ -73,18 +75,18 @@ private static int x = -1;
             currentPlace(x);
         } else {
             x=0;
+            System.out.println("Exiting game. Goodbye");
             currentPlace(x);
-//            System.out.println("Exiting game. Goodbye");
         }
     }
 
 
     public static void room1() {
         myMap.put(1, true);
-        System.out.println("You are in the foyer");
+        System.out.println("You are in the Foyer");
         System.out.println("There is a dead scorpion in this room.");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("You see a shadow in the midst of your eyes. Do you follow the shadow north? Press N to move: ");
+        System.out.println("You see a shadow in the midst of your eyes. Do you follow the shadow north? Press N to move or Q to quit.: ");
         String answer = scanner.nextLine().toLowerCase();
         switch (answer) {
             case "n":
@@ -147,10 +149,10 @@ private static int x = -1;
     public static void room4() {
         myMap.put(4, true);
         String answer;
-        System.out.println("You are currently in the kitchen");
-        System.out.println("This room contains bats");
+        System.out.println("You are currently in the Kitchen");
+        System.out.println("This room contains bats! Don't wake them up...");
 
-        System.out.println("Which direction would you like to go in west or north. (W or N): ");
+        System.out.println("Which direction would you like to go? West or North. (W/N): ");
         Scanner scanner = new Scanner(System.in);
         answer = scanner.nextLine().toLowerCase();
         switch (answer) {
@@ -195,10 +197,10 @@ private static int x = -1;
         myMap.put(6, true);
         Random rnd = new Random();
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("You are in the Vault and there are 3 walking skeletons in this room");
+        System.out.println("You are in the Vault and there are 3 walking skeletons in this room.");
         int n = rnd.nextInt(4);
         if (!myMap.get(8)) {
-            System.out.println("You can proceed ahead by going east: ");
+            System.out.println("You can proceed ahead by going East: ");
             String choice = keyboard.nextLine();
             if (n == 0) {
                 x = 8;
@@ -211,7 +213,7 @@ private static int x = -1;
                 currentPlace(x);
             }
         } else {
-            System.out.println("Would you like to go to the parlor or the secret room? Press 7 or 8, respectively: ");
+            System.out.println("Would you like to go to the Parlor or the Secret room? Press 7 or 8, respectively: ");
             int choice = keyboard.nextInt();
             switch (choice) {
                 case 7:
@@ -231,25 +233,21 @@ private static int x = -1;
 
     public static void room7() {
         myMap.put(7, true);
-        System.out.println("You are in the parlor.");
-        System.out.println("And there is a treasure chest in this room.");
+        System.out.println("You are now in the Parlor.");
+        System.out.println("There is a treasure chest in this room.");
         System.out.println("To leave the room, proceed West or South: (W/S)");
         Scanner keyboard = new Scanner(System.in);
-        String proceed = keyboard.nextLine();
-
-        if (proceed.equalsIgnoreCase("w")) {
-            //return 6;
-            x = 6;
-            currentPlace(x);
-        }
-
-        if (proceed.equalsIgnoreCase("s")) {
-            //return 4;
-            x = 4;
-            currentPlace(x);
-        } else {
-            x = 0;
-            currentPlace(x);
+        String proceed = keyboard.nextLine().toLowerCase();
+        switch (proceed){
+            case "w":
+                currentPlace(6);
+                break;
+            case "s":
+                currentPlace(4);
+                break;
+            case "q":
+                currentPlace(0);
+                break;
         }
     }
 
