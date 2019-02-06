@@ -362,9 +362,11 @@ public class Zork {
 
     public static void FoundItems() {
         System.out.println("The items you found are: ");
+        String itemsFound = "";
         for (int i = 1; i <= myItems.size(); i++) {
-            System.out.println(myItems.get(i));
+            itemsFound += (myItems.get(i) + "\t");
         }
+        System.out.println(itemsFound);
     }
 
 
