@@ -17,7 +17,6 @@ public class Zork {
          * Ask the user to start*/
         promptUser();
 
-
         /*exitMessage method
          *   25% chance the user is followed by a ghost
          *   if followed let user know
@@ -91,12 +90,10 @@ public class Zork {
         switch (answer) {
             case "n":
                 System.out.println("Moving...");
-                x = 2;
-                currentPlace(x);
+                currentPlace(2);
                 break;
             default:
-                x = 0;
-                currentPlace(x);
+                currentPlace(0);
                 break;
         }
     }
@@ -109,21 +106,20 @@ public class Zork {
         System.out.println("You decide to explore. You can go South, East, or West");
         System.out.println("Where would you like to go? (S/E/W): ");
         Scanner input = new Scanner(System.in);
-        String answer = input.next();
-        if (answer.equalsIgnoreCase("S")) {
-            x = 1;
-            currentPlace(x);
-        }
-        if (answer.equalsIgnoreCase("W")) {
-            x = 3;
-            currentPlace(x);
-        }
-        if (answer.equalsIgnoreCase("E")) {
-            x = 4;
-            currentPlace(x);
-        } else {
-            x = 0;
-            currentPlace(x);
+        String answer = input.next().toLowerCase();
+        switch (answer){
+            case "s":
+                currentPlace(1);
+                break;
+            case "w":
+                currentPlace(3);
+                break;
+            case "e":
+                currentPlace(4);
+                break;
+            default:
+                currentPlace(0);
+                break;
         }
     }
 
@@ -134,16 +130,17 @@ public class Zork {
         System.out.println("You are shocked and decide to leave. The directions you can go are North or East.");
         Scanner input = new Scanner(System.in);
         System.out.println("Where would you like to go? (N or E): ");
-        String answer = input.next();
-        if (answer.equalsIgnoreCase("n")) {
-            x = 5;
-            currentPlace(x);
-        } else if (answer.equalsIgnoreCase("e")) {
-            x = 2;
-            currentPlace(x);
-        } else {
-            x = 0;
-            currentPlace(x);
+        String answer = input.next().toLowerCase();
+        switch (answer){
+            case "n":
+                currentPlace(5);
+                break;
+            case "e":
+                currentPlace(2);
+                break;
+            default:
+                currentPlace(0);
+                break;
         }
     }
 
@@ -308,6 +305,6 @@ public class Zork {
                 count += 1;
             }
         }
-        System.out.println("There are " + count + " rooms that you have been to.");
+        System.out.println("There are " + count + " rooms out of 8 that you've explored.");
     }
 }
