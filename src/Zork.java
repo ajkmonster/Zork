@@ -9,7 +9,6 @@ public class Zork {
     private static HashMap<Integer, Integer> RoomMoney = new HashMap<>();
     private static HashMap<Integer, Boolean> myRooms = new HashMap<>();
     private static HashMap<Integer, String> myItems = new HashMap<>();
-    private static int money;
     private static int x = -1;
     private static int charactersRoom = generateCharacterRoom();
 
@@ -18,7 +17,6 @@ public class Zork {
         welcomeMessage();
         HashMapDoorOpened();
         HashMapList();
-
 
         /*
          * Ask the user to start*/
@@ -63,9 +61,9 @@ public class Zork {
         // Tell user if character is in the room
         // Set running total $ to zero and tell the user new total is zero
         if (charactersRoom == roomNum) {
-            System.out.println("Tiv the character is in the room!");
-            money = 0;
-            System.out.println("He took all your money :( Your new total is zero...");
+            System.out.println("Tiv the furry monster is in the room!");
+            totalMoney = 0;
+            System.out.println("He took all your money :( Your new total is: " + totalMoney);
         }
         switch (roomNum) {
             case 1:
