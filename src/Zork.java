@@ -36,7 +36,7 @@ public class Zork {
     public static void welcomeMessage() {
         System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands.");
         System.out.println("We will prompt you to answer and create your own journey!");
-        System.out.println("Press Q to quit at any time");
+        System.out.println("Press Q to quit at any time.");
     }
 
     public static void promptUser() {
@@ -99,7 +99,7 @@ public class Zork {
     public static void room1() {
         myItems.put(1, "Dead Scorpion");
         myRooms.put(1, true);
-        randomMoney(1);
+        getMoney(1);
         System.out.println("You are in the Foyer");
         System.out.println("There is a dead scorpion in this room.");
         Scanner scanner = new Scanner(System.in);
@@ -119,7 +119,7 @@ public class Zork {
     public static void room2() {
         myItems.put(2, "Piano");
         myRooms.put(2, true);
-        randomMoney(2);
+        getMoney(2);
         System.out.println("Welcome to the Front room. You don't see the shadow but you do see a piano.");
         System.out.println("You move towards the piano and sit down.");
         System.out.println("You start playing on the piano when you hear creaking noises coming from other areas. ");
@@ -146,7 +146,7 @@ public class Zork {
     public static void room3() {
         myItems.put(3, "Spiders");
         myRooms.put(3, true);
-        randomMoney(3);
+        getMoney(3);
         System.out.println("Welcome to the Library. You scour around the library. You see books. ");
         System.out.println("You decide to pick up a book and you encounter a huge nest of spiders underneath. ");
         System.out.println("You are shocked and decide to leave. The directions you can go are North or East.");
@@ -169,11 +169,10 @@ public class Zork {
     public static void room4() {
         myItems.put(4, "Bats");
         myRooms.put(4, true);
-        randomMoney(4);
+        getMoney(4);
         String answer;
         System.out.println("You are now in the Kitchen.");
         System.out.println("This room contains bats!");
-
         System.out.println("Which direction would you like to go? West or North. (W/N): ");
         Scanner scanner = new Scanner(System.in);
         answer = scanner.nextLine().toLowerCase();
@@ -197,7 +196,7 @@ public class Zork {
     public static void room5() {
         myItems.put(5, "Dust and empty box");
         myRooms.put(5, true);
-        randomMoney(5);
+        getMoney(5);
         System.out.println("Welcome to the Dining room. You see an empty table, knives, forks, and layers of dust covering everything.");
         System.out.println("You see a box. Do you want to open the box? (Y/N):");
         Scanner input = new Scanner(System.in);
@@ -215,10 +214,11 @@ public class Zork {
     public static void room6() {
         myItems.put(6, "3 Walking Skeletons");
         myRooms.put(6, true);
-        randomMoney(6);
+        getMoney(6);
         Random rnd = new Random();
         Scanner keyboard = new Scanner(System.in);
         System.out.println("You are in the Vault and there are 3 walking skeletons in this room.");
+
         int n = rnd.nextInt(4);
         if (!myRooms.get(8)) {
             System.out.println("You can proceed ahead by going East: ");
@@ -262,9 +262,10 @@ public class Zork {
     public static void room7() {
         myItems.put(7, "Treasure Chest");
         myRooms.put(7, true);
-        randomMoney(7);
+        getMoney(7);
         System.out.println("You are now in the Parlor.");
         System.out.println("There is a treasure chest in this room.");
+
         System.out.println("To leave the room, proceed West or South: (W/S)");
         Scanner keyboard = new Scanner(System.in);
         String proceed = keyboard.nextLine().toLowerCase();
@@ -284,9 +285,9 @@ public class Zork {
     public static void room8() {
         myItems.put(8, "Piles of Gold");
         myRooms.put(8, true);
-        randomMoney(8);
+        getMoney(8);
         System.out.println("You are in the secret room.");
-        System.out.println("Yay! You've struck the piles of hidden gold!");
+        System.out.println("Yay! You've struck the piles of hidden gold! On top of that...");
         System.out.println("To leave the room, proceed West: (W)");
         Scanner keyboard = new Scanner(System.in);
         String proceed = keyboard.nextLine().toLowerCase();
@@ -378,7 +379,7 @@ public class Zork {
         return RandMon;
     }
 
-    public static void randomMoney(int roomNum) {
+    public static void getMoney(int roomNum) {
         System.out.println("There is $ " + RoomMoney.get(roomNum) + " in the room." );
         //if user wants to claim the money or not
         String denyOrTake;
@@ -398,5 +399,6 @@ public class Zork {
         }
 
     }
+
 }
 
