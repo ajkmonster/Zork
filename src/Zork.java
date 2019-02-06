@@ -4,8 +4,9 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
-public class Zork {
 
+public class Zork {
+public static int totalMoney = 0;
     private static HashMap<Integer, Boolean> myMap = new HashMap<>();
 private static int x = -1;
     public static void main(String[] args) {
@@ -301,5 +302,29 @@ private static int x = -1;
             }
         }
         System.out.println("There are " + count + " rooms that you have been to.");
+    }
+
+    public static void randomMoney() {
+
+        //if user wants to claim the money or not
+        String denyOrTake;
+
+        Scanner scanner = new Scanner(System.in);
+
+        Random random = new Random();
+        int rand = random.nextInt(1001);
+        System.out.println("Would you like to take the money?(Y|N)");
+        denyOrTake = scanner.nextLine();
+
+        if (denyOrTake.equalsIgnoreCase("Y")) {
+            totalMoney += rand;
+            System.out.println("Total money: " + totalMoney);
+        } else if (denyOrTake.equalsIgnoreCase("n")) {
+            totalMoney += 0;
+            System.out.println("Total money: " + totalMoney);
+        } else {
+            System.out.println("Incorrect input!!");
+        }
+
     }
 }
