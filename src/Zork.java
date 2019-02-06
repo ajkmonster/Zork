@@ -55,11 +55,11 @@ public class Zork {
         System.out.println("You see a shadow in the midst of your eyes. Do you follow the shadow north? (Y/N): ");
         String answer = scanner.nextLine();
         if(answer.equalsIgnoreCase("y")){
-            System.out.println("going to the next room...");
+            System.out.println("Moving...");
             room2();
         }else{
             System.out.println("You decide to stay in the Foyer");
-            room1();
+
             // Add an option to exit game or go back to main
         }
     }
@@ -68,7 +68,7 @@ public class Zork {
         System.out.println("Welcome to the Front room. You don't see the shadow but you do see a piano.");
         System.out.println("You move towards the piano and sit down.");
         System.out.println("You start playing on the piano when you hear creaking noises coming from other areas. ");
-        System.out.println("You decide to explore. You can go South, East, West");
+        System.out.println("You decide to explore. You can go South, East, or West");
         System.out.println("Where would you like to go? (S/E/W): ");
         Scanner input = new Scanner(System.in);
         String answer = input.next();
