@@ -14,9 +14,38 @@ public class Zork {
 
         /*
         * Ask the user to start*/
-        while (!userQuits()){
-            promptUser();
+
+        int currentPlace = promptUser();
+        switch (currentPlace){
+            case 0:
+                break;
+            case 1:
+                room1();
+                break;
+            case 2:
+                room2();
+                break;
+            case 3:
+                room3();
+                break;
+            case 4:
+                room4();
+                break;
+            case 5:
+                room5();
+                break;
+            case 6:
+                room6();
+                break;
+            case 7:
+                room7();
+                break;
+            case 8:
+                room8();
+                break;
         }
+
+
 
         /*exitMessage method
         *   25% chance the user is followed by a ghost
@@ -33,24 +62,29 @@ public class Zork {
             System.out.println("Press Q to quit at any time");
     }
 
-    public static void promptUser(){
+    public static int promptUser(){
         System.out.println("Would you like to continue? (Y/N) ");
         Scanner scanner1 = new Scanner(System.in);
         String y = scanner1.next();
         HashMap();
         if (y.equalsIgnoreCase("Y")) {
-            room1();
+            return 1;
         } else {
-            userQuits();
-            System.out.println("Exiting game. Goodbye");
+            return 0;
+//            System.out.println("Exiting game. Goodbye");
         }
     }
 
-    public static boolean userQuits(){
-        return true;
-    }
+//    public static boolean userQuits(String str){
+//        if (str.equalsIgnoreCase("Q")){
+//            return true;
+//        } else {
+//            return false;
+//        }
+//
+//    }
 
-    public static void room1 (){
+    public static int room1 (){
         myMap.put(1,true);
         System.out.println("You are in the foyer");
         System.out.println("There is a dead scorpion in this room.");
@@ -59,24 +93,13 @@ public class Zork {
         String answer = scanner.nextLine();
         if(answer.equalsIgnoreCase("y")){
             System.out.println("Moving...");
-            room2();
-        }else if (answer.equalsIgnoreCase("n")){
-            System.out.println("You decide to stay in the Foyer");
-            System.out.println("Would you like to quit? (Y/N): ");
-            String str = scanner.nextLine();
-            if (str.equalsIgnoreCase("y")){
-                userQuits();
-            } else {
-                room1();
+            return 2;
+        }else {
+                return 0;
             }
-
-
-
-            // Add an option to exit game or go back to main
         }
-    }
 
-    public static void room2() {
+    public static int room2() {
         myMap.put(2,true);
         System.out.println("Welcome to the Front room. You don't see the shadow but you do see a piano.");
         System.out.println("You move towards the piano and sit down.");
@@ -86,17 +109,19 @@ public class Zork {
         Scanner input = new Scanner(System.in);
         String answer = input.next();
         if (answer.equalsIgnoreCase("S")){
-            room1();
+            return 1;
         }
         if (answer.equalsIgnoreCase("W")){
-            room3();
+            return 3;
         }
         if (answer.equalsIgnoreCase("E")){
-           room4();
+            return 4;
+        } else {
+            return 0;
         }
     }
 
-    public static void room3() {
+    public static int room3() {
         myMap.put(3,true);
         System.out.println("Welcome to the Library. You scour around the library. You see books. ");
         System.out.println("You decide to pick up a book and you encounter a huge nest of spiders underneath. ");
@@ -105,15 +130,17 @@ public class Zork {
         System.out.println("Where would you like to go? (N or E): ");
         String answer = input.next();
         if (answer.equalsIgnoreCase("n")){
-
-            room5();
+            return 5;
         }
         if (answer.equalsIgnoreCase("e")){
-            room2();
+            return 2;
+        }
+        else {
+            return 0;
         }
     }
 
-    public static void room4(){
+    public static int room4(){
         myMap.put(4,true);
         String answer;
         System.out.println("You are currently in the kitchen");
@@ -124,18 +151,18 @@ public class Zork {
         answer = scanner.nextLine().toLowerCase();
         switch(answer){
             case "w":
-                room2();
-                break;
+                return 2;
             case "n":
-                room7();
-                break;
+                return 7;
+            case "q":
+                return 0;
             default:
                 System.out.println("Please enter the correct direction");
-                room4();
+                return 4;
         }
     }
 
-    public static void room5(){
+    public static int room5(){
         myMap.put(5,true);
         System.out.println("Welcome to the Dining room. You see an empty table, knives, forks, and layers of dust covering everything.");
         System.out.println("You see a box. Do you want to open the box? (Y/N):");
@@ -145,16 +172,16 @@ public class Zork {
             System.out.println("You open the box. It's empty. You decide you want to leave. There is no other doors.");
             System.out.println("Enter S to go back south. ");
             answer = input.next();
-            room3();
+            return 3;
         } else {
             System.out.println("You didn't open the box, but nothing else caught your eye. You decide to leave.");
             System.out.println("There is no other doors. Enter S to go back south.");
             answer = input.next();
-            room3();
+            return 3;
         }
     }
 
-    public static void room6(){
+    public static int room6(){
         myMap.put(6,true);
         Random rnd = new Random();
         Scanner keyboard = new Scanner(System.in);
@@ -164,30 +191,30 @@ public class Zork {
             System.out.println("You can proceed ahead by going east: ");
             String choice = keyboard.nextLine();
             if (n==0){
-                room8();
+                return 8;
+            } else if (choice.equalsIgnoreCase("q")){
+                return 0;
             }
             else{
-                room7();
+                return 7;
             }
         } else {
-            System.out.println("Would you like to go to the parlor or the secret room? Press 7 or 8 ,respectively: ");
+            System.out.println("Would you like to go to the parlor or the secret room? Press 7 or 8, respectively: ");
             int choice = keyboard.nextInt();
             switch (choice){
                 case 7:
-                    room7();
-                    break;
+                    return 7;
                 case 8:
-                    room8();
-                    break;
+                    return 8;
                 default:
                     System.out.println("You entered the wrong number. Please choose between 7 and 8.");
-                    room6();
+                    return 6;
             }
         }
     }
 
 
-        public static void room7(){
+        public static int room7(){
             myMap.put(7,true);
         System.out.println("You are in the parlor.");
         System.out.println("And there is a treasure chest in this room.");
@@ -196,17 +223,19 @@ public class Zork {
         String proceed = keyboard.nextLine();
 
         if(proceed.equalsIgnoreCase("w")){
-            // go to room 6
-            room6();
+            //return 6;
+            return 6;
         }
 
         if(proceed.equalsIgnoreCase("s")){
-            // go to room 4
-            room4();
+            //return 4;
+            return 4;
+        } else {
+            return 0;
         }
     }
 
-    public static void room8(){
+    public static int room8(){
         myMap.put(8,true);
         System.out.println("You are in the secret room.");
         System.out.println("Yay! You've struck the piles of hidden gold!");
@@ -215,7 +244,9 @@ public class Zork {
         String proceed = keyboard.nextLine();
 
         if(proceed.equalsIgnoreCase("w")){
-            room6();
+            return 6;
+        } else {
+            return 0;
         }
     }
 
@@ -227,8 +258,9 @@ public class Zork {
             System.out.println("Run! There's a ghost chasing you!");
         }
         VisitedRooms();
-
     }
+    
+    
     public static void HashMap(){
         myMap.put(1,false);
         myMap.put(2,false);
@@ -241,14 +273,12 @@ public class Zork {
     }
 
     public static void VisitedRooms(){
-        int count1 = 0;
+        int count = 0;
         for(int i=1; i<=myMap.size(); i++) {
             if (myMap.get(i)){
-                count1 += 1;
-            } else {
-                count1 = count1;
-            }
+                count += 1;
+            } 
         }
-        System.out.println("There are " + count1 + " rooms that you have been to.");
+        System.out.println("There are " + count + " rooms that you have been to.");
     }
 }
