@@ -155,21 +155,17 @@ public class Zork {
         answer = scanner.nextLine().toLowerCase();
         switch (answer) {
             case "w":
-                x = 2;
-                currentPlace(x);
+                currentPlace(2);
                 break;
             case "n":
-                x = 7;
-                currentPlace(x);
+                currentPlace(7);
                 break;
             case "q":
-                x = 0;
-                currentPlace(x);
+                currentPlace(0);
                 break;
             default:
                 System.out.println("Please enter the correct direction");
-                x = 4;
-                currentPlace(x);
+                currentPlace(4);
                 break;
         }
     }
@@ -181,18 +177,13 @@ public class Zork {
         Scanner input = new Scanner(System.in);
         String answer = input.next();
         if (answer.equalsIgnoreCase("y")) {
-            System.out.println("You open the box. It's empty. You decide you want to leave. There is no other doors.");
-            System.out.println("Enter S to go back south. ");
-            answer = input.next();
-            x = 3;
-            currentPlace(x);
+            System.out.println("You open the box. It's empty. You decide you want to leave. ");
         } else {
             System.out.println("You didn't open the box, but nothing else caught your eye. You decide to leave.");
-            System.out.println("There is no other doors. Enter S to go back south.");
-            answer = input.next();
-            x = 3;
-            currentPlace(x);
         }
+        System.out.println("There is no other exit. Enter S to go back.");
+        answer = input.next();
+        currentPlace(3);
     }
 
     public static void room6() {
@@ -204,15 +195,16 @@ public class Zork {
         if (!myMap.get(8)) {
             System.out.println("You can proceed ahead by going East: ");
             String choice = keyboard.nextLine();
-            if (n == 0) {
-                x = 8;
-                currentPlace(x);
-            } else if (choice.equalsIgnoreCase("q")) {
-                x = 0;
-                currentPlace(x);
-            } else {
-                x = 7;
-                currentPlace(x);
+            switch (n){
+                case 0:
+                    currentPlace(8);
+                    break;
+                default:
+                    currentPlace(7);
+                    break;
+            }
+            if (choice.equalsIgnoreCase("Q")){
+                currentPlace(0);
             }
         } else {
             System.out.println("Would you like to go to the Parlor or the Secret room? Press 7 or 8, respectively: ");
@@ -262,14 +254,14 @@ public class Zork {
         System.out.println("Yay! You've struck the piles of hidden gold!");
         System.out.println("To leave the room, proceed West: (W)");
         Scanner keyboard = new Scanner(System.in);
-        String proceed = keyboard.nextLine();
-
-        if (proceed.equalsIgnoreCase("w")) {
-            x = 6;
-            currentPlace(x);
-        } else {
-            x = 0;
-            currentPlace(x);
+        String proceed = keyboard.nextLine().toLowerCase();
+        switch (proceed){
+            case "w":
+                currentPlace(6);
+                break;
+            default:
+                currentPlace(0);
+                break;
         }
     }
 
