@@ -220,6 +220,7 @@ public class Zork {
                     break;
                 case ("q"):
                     currentPlace(x=0);
+                    break;
                 default:
                     System.out.println("You entered the wrong number. Please choose between 7 and 8.");
                     x = 6;
