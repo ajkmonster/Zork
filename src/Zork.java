@@ -300,4 +300,15 @@ public class Zork {
         }
         System.out.println("You've explored " + count + " room(s) out of 8 total.");
     }
+
+    public static void listItems(){
+        HashMap<Integer, String> myItems = new HashMap<Integer, String>();
+        myItems.put(1, "Dead Scorpion");
+        myItems.put(2, "Piano");
+        myItems.put(3, "Spiders");
+        myItems
+    }
+
+
+
 }
