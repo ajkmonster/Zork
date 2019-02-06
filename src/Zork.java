@@ -27,7 +27,7 @@ public class Zork {
     }
 
     public static void currentPlace(int x) {
-        switch  (x) {
+        switch (x) {
             case 0:
                 break;
             case 1:
@@ -71,10 +71,10 @@ public class Zork {
         String y = scanner1.next();
         HashMap();
         if (y.equalsIgnoreCase("Y")) {
-            x =1;
+            x = 1;
             currentPlace(x);
         } else {
-            x=0;
+            x = 0;
             System.out.println("Exiting game. Goodbye");
             currentPlace(x);
         }
@@ -93,9 +93,11 @@ public class Zork {
                 System.out.println("Moving...");
                 x = 2;
                 currentPlace(x);
+                break;
             default:
                 x = 0;
                 currentPlace(x);
+                break;
         }
     }
 
@@ -136,8 +138,7 @@ public class Zork {
         if (answer.equalsIgnoreCase("n")) {
             x = 5;
             currentPlace(x);
-        }
-        if (answer.equalsIgnoreCase("e")) {
+        } else if (answer.equalsIgnoreCase("e")) {
             x = 2;
             currentPlace(x);
         } else {
@@ -149,8 +150,8 @@ public class Zork {
     public static void room4() {
         myMap.put(4, true);
         String answer;
-        System.out.println("You are currently in the Kitchen");
-        System.out.println("This room contains bats! Don't wake them up...");
+        System.out.println("You are now in the Kitchen.");
+        System.out.println("This room contains bats!");
 
         System.out.println("Which direction would you like to go? West or North. (W/N): ");
         Scanner scanner = new Scanner(System.in);
@@ -159,16 +160,20 @@ public class Zork {
             case "w":
                 x = 2;
                 currentPlace(x);
+                break;
             case "n":
                 x = 7;
                 currentPlace(x);
+                break;
             case "q":
                 x = 0;
                 currentPlace(x);
+                break;
             default:
                 System.out.println("Please enter the correct direction");
                 x = 4;
                 currentPlace(x);
+                break;
         }
     }
 
@@ -219,13 +224,16 @@ public class Zork {
                 case 7:
                     x = 7;
                     currentPlace(x);
+                    break;
                 case 8:
                     x = 8;
                     currentPlace(x);
+                    break;
                 default:
                     System.out.println("You entered the wrong number. Please choose between 7 and 8.");
                     x = 6;
                     currentPlace(x);
+                    break;
             }
         }
     }
@@ -238,7 +246,7 @@ public class Zork {
         System.out.println("To leave the room, proceed West or South: (W/S)");
         Scanner keyboard = new Scanner(System.in);
         String proceed = keyboard.nextLine().toLowerCase();
-        switch (proceed){
+        switch (proceed) {
             case "w":
                 currentPlace(6);
                 break;
