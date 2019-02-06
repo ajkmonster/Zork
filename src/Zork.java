@@ -7,9 +7,8 @@ import java.util.ArrayList;
 
 public class Zork {
 
-    private static ArrayList<Boolean> roomsVisited = new ArrayList<>();
-    // Initialized at false
     private static HashMap<Integer, Boolean> myMap = new HashMap<>();
+
     public static void main(String[]args){
         // welcomeMessage method
         welcomeMessage();
@@ -18,13 +17,11 @@ public class Zork {
         * Ask the user to start*/
         promptUser();
 
-
-        // moveUser method -- we may not need this
-        // Move user to the desired room, tell them what room it is, and what's in the room, and what directions other exists are in
-        // exitMessage method
-            // 25% chance the user is followed by a ghost
-            // if user followed, let them know
-            // let user know how many rooms they've been in
+        /*exitMessage method
+        *   25% chance the user is followed by a ghost
+        *   if followed let user know
+        *   let user how many rooms left unvisited
+        *   */
         exitMessage();
     }
 
@@ -33,9 +30,10 @@ public class Zork {
     public static void welcomeMessage(){
             System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands.");
             System.out.println("We will prompt you to answer and create your own journey!");
+            System.out.println("Press Q to quit at any time");
     }
 
-    public static void promptUser(){
+    public static void promptUser(String str){
         System.out.println("Would you like to continue? (Y/N) ");
         Scanner scanner1 = new Scanner(System.in);
         String y = scanner1.next();
@@ -44,6 +42,13 @@ public class Zork {
             room1();
         } else {
             System.out.println("Exiting game. Goodbye");
+        }
+    }
+
+    public static void userQuits(String str){
+        if (str.equalsIgnoreCase("q")){
+
+
         }
     }
 
@@ -140,21 +145,25 @@ public class Zork {
     }
 
 
-        public static void room6(){
+    public static void room6(){
         myMap.put(6,true);
-            Random rnd = new Random();
-            Scanner keyboard = new Scanner(System.in);
-                System.out.println("You are in the Vault and there are 3 walking skeletons in this room");
-                System.out.println("You can proceed ahead by going east: ");
-                String choice = keyboard.nextLine();
-            int n = rnd.nextInt(4);
-                    if (n==0){
-                        room8();
-                    }
-                    else{
-                        room7();
-                    }
-                }
+        Random rnd = new Random();
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("You are in the Vault and there are 3 walking skeletons in this room");
+        System.out.println("You can proceed ahead by going east: ");
+        String choice = keyboard.nextLine();
+        int n = rnd.nextInt(4);
+        if (myMap.get(8)==false){
+            if (n==0){
+                room8();
+            }
+            else{
+                room7();
+            }
+        } else {
+
+        }
+    }
 
 
         public static void room7(){
@@ -196,8 +205,6 @@ public class Zork {
         int randomNum = (int)Math.random()*4;
         if(randomNum==0){
             System.out.println("Run! There's a ghost chasing you!");
-        }else{
-            System.out.println("No ghost on your tail.");
         }
         VisitedRooms();
 
