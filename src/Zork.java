@@ -215,13 +215,13 @@ public class Zork {
 
     public static void VisitedRooms(){
         int count1 = 0;
-        for(int i=1; i<myMap.size(); i++) {
+        for(int i=1; i<=myMap.size(); i++) {
             if (myMap.get(i)){
                 count1 = count1+1;
             } else {
                 count1 = count1;
             }
         }
-        System.out.println("There are " + count1 + " rooms that you have been to yet.");
+        System.out.println("There are " + count1 + " rooms that you have been to.");
     }
 }
