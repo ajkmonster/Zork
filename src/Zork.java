@@ -85,7 +85,7 @@ public class Zork {
         System.out.println("You are in the Foyer");
         System.out.println("There is a dead scorpion in this room.");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("You see a shadow in the midst of your eyes. Do you follow the shadow north? Press N to move or Q to quit.: ");
+        System.out.println("You see a shadow in the midst of your eyes. Do you follow the shadow north? Press N to move or Q to quit: ");
         String answer = scanner.nextLine().toLowerCase();
         switch (answer) {
             case "n":
@@ -297,6 +297,6 @@ public class Zork {
                 count += 1;
             }
         }
-        System.out.println("There are " + count + " rooms out of 8 that you've explored.");
+        System.out.println("You've explored " + count + " room(s) out of 8 total.");
     }
 }
