@@ -15,10 +15,8 @@ public class Zork {
     public static void main(String[] args) {
         // welcomeMessage method
         welcomeMessage();
-
-        // Create a hashmap
-        HashMap();
-
+        HashMapDoorOpened();
+        HashMapList();
 //        // Assign a room number for the character
 //        int charactersRoom = generateCharacter();
 
@@ -82,8 +80,8 @@ public class Zork {
         System.out.println("Would you like to continue? (Y/N) ");
         Scanner scanner1 = new Scanner(System.in);
         String y = scanner1.next();
-        HashMap();
-        HashMap2();
+        HashMapDoorOpened();
+        HashMapList();
         if (y.equalsIgnoreCase("Y")) {
             currentPlace(1);
         } else {
@@ -319,7 +317,7 @@ public class Zork {
     }
 
 
-    public static void HashMap() {
+    public static void HashMapDoorOpened() {
         myMap.put(1, false);
         myMap.put(2, false);
         myMap.put(3, false);
@@ -330,7 +328,7 @@ public class Zork {
         myMap.put(8, false);
     }
 
-    public static void HashMap2() {
+    public static void HashMapList() {
         myList.put(1, " ");
         myList.put(2, " ");
         myList.put(3, " ");
