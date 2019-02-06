@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 
 public class Zork {
@@ -19,9 +18,6 @@ public class Zork {
         // Create a hashmap
         HashMap();
 
-//        // Assign a room number for the character
-//        int charactersRoom = generateCharacter();
-
         /*
          * Ask the user to start*/
         promptUser();
@@ -34,43 +30,6 @@ public class Zork {
         exitMessage();
     }
 
-    public static void currentPlace(int usersRoom) {
-        if (charactersRoom == usersRoom) {
-            money = 0;
-
-        }
-        switch (usersRoom) {
-            case 0:
-                break;
-            case 1:
-                room(1, charactersRoom);
-                break;
-            case 2:
-                room(2, charactersRoom);
-                break;
-            case 3:
-                room(3, charactersRoom);
-                break;
-            case 4:
-                room(4, charactersRoom);
-                break;
-            case 5:
-                room(5, charactersRoom);
-                break;
-            case 6:
-                room(6, charactersRoom);
-                break;
-            case 7:
-                room(7, charactersRoom);
-                break;
-            case 8:
-                room(8, charactersRoom);
-                break;
-            default:
-                break;
-        }
-
-    }
 
     public static void welcomeMessage() {
         System.out.println("Welcome to Zork. We are on an adventure to explore the Castle of the Netherlands.");
@@ -79,39 +38,66 @@ public class Zork {
     }
 
     public static void promptUser() {
+        System.out.println();
         System.out.println("Would you like to continue? (Y/N) ");
         Scanner scanner1 = new Scanner(System.in);
         String y = scanner1.next();
         HashMap();
         HashMap2();
         if (y.equalsIgnoreCase("Y")) {
-            currentPlace(1);
+            moveToRoom(1);
         } else {
             System.out.println("Exiting game. Goodbye");
-            currentPlace(0);
+            moveToRoom(0);
         }
     }
 
+
+    public static void moveToRoom(int usersRoom) {
+        room(usersRoom, charactersRoom);
+    }
 
     public static void room(int roomNum, int charactersRoom) {
+        // Tell user if character is in the room
+        // Set running total $ to zero and tell the user new total is zero
         if (charactersRoom == roomNum) {
             System.out.println("The character is in the room!");
+            money = 0;
+            System.out.println("The character took all your money :( Your new total is zero...");
         }
-
         switch (roomNum) {
             case 1:
-                room1(charactersRoom);
-            case
-            case
-            case
-            case
+                room1();
+                break;
+            case 2:
+                room2();
+                break;
+            case 3:
+                room3();
+                break;
+            case 4:
+                room4();
+                break;
+            case 5:
+                room5();
+                break;
+            case 6:
+                room6();
+                break;
+            case 7:
+                room7();
+                break;
+            case 8:
+                room8();
+                break;
+            default:
+                break;
         }
     }
 
 
-    public static void room1(int charactersRoom) {
+    public static void room1() {
         myList.put(1, "Dead Scorpion");
-
         myMap.put(1, true);
         System.out.println("You are in the Foyer");
         System.out.println("There is a dead scorpion in this room.");
@@ -121,10 +107,10 @@ public class Zork {
         switch (answer) {
             case "n":
                 System.out.println("Moving...");
-                currentPlace(2);
+                moveToRoom(2);
                 break;
             default:
-                currentPlace(0);
+                moveToRoom(0);
                 break;
         }
     }
@@ -141,16 +127,16 @@ public class Zork {
         String answer = input.next().toLowerCase();
         switch (answer) {
             case "s":
-                currentPlace(1);
+                moveToRoom(1);
                 break;
             case "w":
-                currentPlace(3);
+                moveToRoom(3);
                 break;
             case "e":
-                currentPlace(4);
+                moveToRoom(4);
                 break;
             default:
-                currentPlace(0);
+                moveToRoom(0);
                 break;
         }
     }
@@ -166,13 +152,13 @@ public class Zork {
         String answer = input.next().toLowerCase();
         switch (answer) {
             case "n":
-                currentPlace(5);
+                moveToRoom(5);
                 break;
             case "e":
-                currentPlace(2);
+                moveToRoom(2);
                 break;
             default:
-                currentPlace(0);
+                moveToRoom(0);
                 break;
         }
     }
@@ -189,17 +175,17 @@ public class Zork {
         answer = scanner.nextLine().toLowerCase();
         switch (answer) {
             case "w":
-                currentPlace(2);
+                moveToRoom(2);
                 break;
             case "n":
-                currentPlace(7);
+                moveToRoom(7);
                 break;
             case "q":
-                currentPlace(0);
+                moveToRoom(0);
                 break;
             default:
                 System.out.println("Please enter the correct direction");
-                currentPlace(4);
+                moveToRoom(4);
                 break;
         }
     }
@@ -218,7 +204,7 @@ public class Zork {
         }
         System.out.println("There is no other exit. Enter S to go back.");
         answer = input.next();
-        currentPlace(3);
+        moveToRoom(3);
     }
 
     public static void room6() {
@@ -233,14 +219,14 @@ public class Zork {
             String choice = keyboard.nextLine();
             switch (n) {
                 case 0:
-                    currentPlace(8);
+                    moveToRoom(8);
                     break;
                 default:
-                    currentPlace(7);
+                    moveToRoom(7);
                     break;
             }
             if (choice.equalsIgnoreCase("Q")) {
-                currentPlace(0);
+                moveToRoom(0);
             }
         } else {
             System.out.println("Would you like to go to the Parlor or the Secret room? Press 7 or 8, respectively: ");
@@ -248,19 +234,19 @@ public class Zork {
             switch (choice) {
                 case ("7"):
                     x = 7;
-                    currentPlace(x);
+                    moveToRoom(x);
                     break;
                 case ("8"):
                     x = 8;
-                    currentPlace(x);
+                    moveToRoom(x);
                     break;
                 case ("q"):
-                    currentPlace(x = 0);
+                    moveToRoom(x = 0);
                     break;
                 default:
                     System.out.println("You entered the wrong number. Please choose between 7 and 8.");
                     x = 6;
-                    currentPlace(x);
+                    moveToRoom(x);
                     break;
             }
         }
@@ -277,13 +263,13 @@ public class Zork {
         String proceed = keyboard.nextLine().toLowerCase();
         switch (proceed) {
             case "w":
-                currentPlace(6);
+                moveToRoom(6);
                 break;
             case "s":
-                currentPlace(4);
+                moveToRoom(4);
                 break;
             case "q":
-                currentPlace(0);
+                moveToRoom(0);
                 break;
         }
     }
@@ -298,10 +284,10 @@ public class Zork {
         String proceed = keyboard.nextLine().toLowerCase();
         switch (proceed) {
             case "w":
-                currentPlace(6);
+                moveToRoom(6);
                 break;
             default:
-                currentPlace(0);
+                moveToRoom(0);
                 break;
         }
     }
@@ -363,15 +349,8 @@ public class Zork {
         // Create a character
         // Generate a random room number
         Random rnd = new Random();
-        int c = 1 + rnd.nextInt(8);
-        return c;
-
-
-        // Place the character in the random room
-
-        // Tell user if character is in the room
-        // Set running total $ to zero and tell the user new total is zero
-
+        int charRoom = 1 + rnd.nextInt(8);
+        return charRoom;
     }
 
     public static void randomMoney() {
