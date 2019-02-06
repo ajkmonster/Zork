@@ -208,16 +208,18 @@ public class Zork {
             }
         } else {
             System.out.println("Would you like to go to the Parlor or the Secret room? Press 7 or 8, respectively: ");
-            int choice = keyboard.nextInt();
+            String choice = keyboard.next();
             switch (choice) {
-                case 7:
+                case ("7"):
                     x = 7;
                     currentPlace(x);
                     break;
-                case 8:
+                case ("8"):
                     x = 8;
                     currentPlace(x);
                     break;
+                case ("q"):
+                    currentPlace(x=0);
                 default:
                     System.out.println("You entered the wrong number. Please choose between 7 and 8.");
                     x = 6;
