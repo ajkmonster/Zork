@@ -7,6 +7,7 @@ public class Zork {
     public static int totalMoney = 0;
     private static HashMap<Integer, Boolean> myMap = new HashMap<>();
     private static HashMap<Integer, String> myList = new HashMap<>();
+    private static HashMap<Integer, Integer> RoomMoney = new HashMap<>();
     private static int money;
     private static int x = -1;
     private static int charactersRoom = generateCharacterRoom();
@@ -328,7 +329,9 @@ public class Zork {
         myList.put(7, " ");
         myList.put(8, " ");
     }
-
+public static void HashMapMoneyInside(){
+        RoomMoney.put(1, )
+}
     public static void VisitedRooms() {
         int count = 0;
         for (int i = 1; i <= myMap.size(); i++) {
