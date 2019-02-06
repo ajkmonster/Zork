@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Zork {
     public static int totalMoney = 0;
+
+    private static HashMap<Integer, Integer> RoomMoney = new HashMap<>();
     private static HashMap<Integer, Boolean> myRooms = new HashMap<>();
     private static HashMap<Integer, String> myItems = new HashMap<>();
     private static int money;
@@ -334,7 +336,9 @@ public class Zork {
         myItems.put(7, " ");
         myItems.put(8, " ");
     }
-
+public static void HashMapMoneyInside(){
+        RoomMoney.put(1, )
+}
     public static void VisitedRooms() {
         int count = 0;
         for (int i = 1; i <= myRooms.size(); i++) {
