@@ -76,7 +76,7 @@ public class Zork {
             room3();
         }
         if (answer.equalsIgnoreCase("E")){
-           // room4(input1);
+           room4();
         }
     }
     public static void room3() {
@@ -136,7 +136,7 @@ public class Zork {
     }
 
 
-        public static void room6(String input){
+        public static void room6(){
 
             Random rnd = new Random();
 
@@ -158,7 +158,6 @@ public class Zork {
                     }
 
                 }
-            }
 
 
         public static void room7(){
@@ -171,7 +170,7 @@ public class Zork {
 
         if(proceed.equalsIgnoreCase("w")){
             // go to room 6
-            //room6();
+            room6();
         }
 
         if(proceed.equalsIgnoreCase("s")){
@@ -190,7 +189,7 @@ public class Zork {
 
         if(proceed.equalsIgnoreCase("w")){
             // go to room 6
-            //room6();
+            room6();
         }
     }
 
