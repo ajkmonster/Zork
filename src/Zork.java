@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class Zork {
 
     private static HashMap<Integer, Boolean> myMap = new HashMap<>();
+    private static HashMap<Integer, String> myList = new HashMap<>();
+    private static int money;
     private static int x = -1;
 
     public static void main(String[] args) {
@@ -69,6 +71,7 @@ public class Zork {
         Scanner scanner1 = new Scanner(System.in);
         String y = scanner1.next();
         HashMap();
+        HashMap2();
         if (y.equalsIgnoreCase("Y")) {
             x = 1;
             currentPlace(x);
@@ -81,6 +84,7 @@ public class Zork {
 
 
     public static void room1() {
+        myList.put(1,"Dead Scorpion");
         myMap.put(1, true);
         System.out.println("You are in the Foyer");
         System.out.println("There is a dead scorpion in this room.");
@@ -99,6 +103,7 @@ public class Zork {
     }
 
     public static void room2() {
+        myList.put(2,"Piano");
         myMap.put(2, true);
         System.out.println("Welcome to the Front room. You don't see the shadow but you do see a piano.");
         System.out.println("You move towards the piano and sit down.");
@@ -124,6 +129,7 @@ public class Zork {
     }
 
     public static void room3() {
+        myList.put(3,"Spiders");
         myMap.put(3, true);
         System.out.println("Welcome to the Library. You scour around the library. You see books. ");
         System.out.println("You decide to pick up a book and you encounter a huge nest of spiders underneath. ");
@@ -145,6 +151,7 @@ public class Zork {
     }
 
     public static void room4() {
+        myList.put(4,"Bats");
         myMap.put(4, true);
         String answer;
         System.out.println("You are now in the Kitchen.");
@@ -171,6 +178,7 @@ public class Zork {
     }
 
     public static void room5() {
+        myList.put(5,"Dust and empty box");
         myMap.put(5, true);
         System.out.println("Welcome to the Dining room. You see an empty table, knives, forks, and layers of dust covering everything.");
         System.out.println("You see a box. Do you want to open the box? (Y/N):");
@@ -187,6 +195,7 @@ public class Zork {
     }
 
     public static void room6() {
+        myList.put(6,"3 Walking Skeletons");
         myMap.put(6, true);
         Random rnd = new Random();
         Scanner keyboard = new Scanner(System.in);
@@ -232,6 +241,7 @@ public class Zork {
 
 
     public static void room7() {
+        myList.put(7,"Treasure Chest");
         myMap.put(7, true);
         System.out.println("You are now in the Parlor.");
         System.out.println("There is a treasure chest in this room.");
@@ -252,6 +262,7 @@ public class Zork {
     }
 
     public static void room8() {
+        myList.put(8,"Piles of Gold");
         myMap.put(8, true);
         System.out.println("You are in the secret room.");
         System.out.println("Yay! You've struck the piles of hidden gold!");
@@ -277,6 +288,7 @@ public class Zork {
             System.out.println("Run! There's a ghost chasing you!");
         }
         VisitedRooms();
+        FoundItems();
     }
 
 
@@ -290,6 +302,16 @@ public class Zork {
         myMap.put(7, false);
         myMap.put(8, false);
     }
+    public static void HashMap2() {
+        myList.put(1," ");
+        myList.put(2," ");
+        myList.put(3," ");
+        myList.put(4," ");
+        myList.put(5," ");
+        myList.put(6," ");
+        myList.put(7," ");
+        myList.put(8," ");
+    }
 
     public static void VisitedRooms() {
         int count = 0;
@@ -299,5 +321,12 @@ public class Zork {
             }
         }
         System.out.println("There are " + count + " rooms out of 8 that you've explored.");
+    }
+    public static void FoundItems () {
+        System.out.println("The items I have found are: ");
+        for (int i = 1; i <= myList.size() ; i++) {
+            System.out.println(myList.get(i));
+        }
+
     }
 }
