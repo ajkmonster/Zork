@@ -104,19 +104,20 @@ public class Zork {
         String answer;
         System.out.println("You are currently in the kitchen");
         System.out.println("This room contains bats");
-        System.out.println("Which room do you want to go to?(room2|room7)");
+
+        System.out.println("Which direction would you like to go in west or north. (W or N): ");
         Scanner scanner = new Scanner(System.in);
-        answer = scanner.nextLine();
+        answer = scanner.nextLine().toLowerCase();
         switch(answer){
-            case "room2":
+            case "w":
                 room2();
                 break;
-            case "room7":
+            case "n":
                 room7();
                 break;
             default:
-                System.out.println("Please enter the correct room");
-
+                System.out.println("Please enter the correct direction");
+                room4();
         }
     }
     public static void room5(){
@@ -214,11 +215,13 @@ public class Zork {
 
     public static void VisitedRooms(){
         int count1 = 0;
-        for(int i=0; i<myMap.size(); i++) {
-            if (myMap.get(i) == true){
+        for(int i=1; i<myMap.size(); i++) {
+            if (myMap.get(i)){
                 count1 = count1+1;
+            } else {
+                count1 = count1;
             }
         }
-        System.out.println("There are " + count1 + " rooms that you haven't been to yet.");
+        System.out.println("There are " + count1 + " rooms that you have been to yet.");
     }
 }
