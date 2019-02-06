@@ -8,10 +8,18 @@ public class Zork {
 
     private static HashMap<Integer, Boolean> myMap = new HashMap<>();
     private static int x = -1;
+    private static int charactersRoom = generateCharacterRoom();
+    private static int money = 100;
 
     public static void main(String[] args) {
         // welcomeMessage method
         welcomeMessage();
+
+        // Create a hashmap
+        HashMap();
+
+//        // Assign a room number for the character
+//        int charactersRoom = generateCharacter();
 
         /*
          * Ask the user to start*/
@@ -25,37 +33,42 @@ public class Zork {
         exitMessage();
     }
 
-    public static void currentPlace(int x) {
-        switch (x) {
+    public static void currentPlace(int usersRoom) {
+        if (charactersRoom == usersRoom){
+            money = 0;
+
+        }
+        switch (usersRoom) {
             case 0:
                 break;
             case 1:
-                room1();
+                room(1, charactersRoom);
                 break;
             case 2:
-                room2();
+                room(2, charactersRoom);
                 break;
             case 3:
-                room3();
+                room(3, charactersRoom);
                 break;
             case 4:
-                room4();
+                room(4, charactersRoom);
                 break;
             case 5:
-                room5();
+                room(5, charactersRoom);
                 break;
             case 6:
-                room6();
+                room(6, charactersRoom);
                 break;
             case 7:
-                room7();
+                room(7, charactersRoom);
                 break;
             case 8:
-                room8();
+                room(8, charactersRoom);
                 break;
             default:
                 break;
         }
+
     }
 
     public static void welcomeMessage() {
@@ -68,19 +81,31 @@ public class Zork {
         System.out.println("Would you like to continue? (Y/N) ");
         Scanner scanner1 = new Scanner(System.in);
         String y = scanner1.next();
-        HashMap();
         if (y.equalsIgnoreCase("Y")) {
-            x = 1;
-            currentPlace(x);
+            currentPlace(1);
         } else {
-            x = 0;
             System.out.println("Exiting game. Goodbye");
-            currentPlace(x);
+            currentPlace(0);
         }
     }
 
 
-    public static void room1() {
+    public static void room(int roomNum, int charactersRoom){
+        if (charactersRoom==roomNum){
+            System.out.println("The character is in the room!");
+        }
+
+        switch (roomNum){
+            case 1:
+                room1(charactersRoom);
+            case
+            case
+            case
+            case
+        }
+    }
+
+    public static void room1(int charactersRoom) {
         myMap.put(1, true);
         System.out.println("You are in the Foyer");
         System.out.println("There is a dead scorpion in this room.");
@@ -306,7 +331,22 @@ public class Zork {
         myItems.put(1, "Dead Scorpion");
         myItems.put(2, "Piano");
         myItems.put(3, "Spiders");
-        myItems
+
+    }
+
+    public static int generateCharacterRoom(){
+
+        // Create a character
+        // Generate a random room number
+        Random rnd = new Random();
+        int c = 1 + rnd.nextInt(8);
+        return c;
+
+
+        // Place the character in the random room
+
+        // Tell user if character is in the room
+        // Set running total $ to zero and tell the user new total is zero
     }
 
 
