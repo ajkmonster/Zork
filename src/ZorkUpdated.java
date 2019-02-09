@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-public class Zork {
+public class ZorkUpdated {
     public static int totalMoney = 0;
 
     private static HashMap<Integer, Integer> RoomMoney = new HashMap<>();
