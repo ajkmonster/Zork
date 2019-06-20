@@ -385,23 +385,27 @@ public class ZorkUpdated {
     }
 
     public static void getMoney(int roomNum) {
-        System.out.println("There is $ " + RoomMoney.get(roomNum) + " in the room." );
+        System.out.println("There is $ " + RoomMoney.get(roomNum) + " in the room.");
         //if user wants to claim the money or not
         String denyOrTake;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Would you like to take the money? (Y/N)");
-        denyOrTake = scanner.nextLine();
-
-        if (denyOrTake.equalsIgnoreCase("Y")) {
+        if (RoomMoney.get(roomNum) != 0) {
+            System.out.println("Would you like to take the money? (Y/N)");
+            denyOrTake = scanner.nextLine();
+            if (denyOrTake.equalsIgnoreCase("Y")) {
             totalMoney += RoomMoney.get(roomNum);
             System.out.println("Total money: " + totalMoney);
             RoomMoney.put(roomNum,0);
-        } else if (denyOrTake.equalsIgnoreCase("N")) {
+            } else if (denyOrTake.equalsIgnoreCase("N")) {
             totalMoney += 0;
             System.out.println("Total money: $" + totalMoney);
-        } else {
+            } else {
             System.out.println("Incorrect input!!");
+            }
+        } else {
+            System.out.println("Total money: $" + totalMoney);
         }
+
 
     }
 
